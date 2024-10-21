@@ -34,28 +34,28 @@ This project provisions the following Azure resources:
 
 Define your project variables in a terraform.tfvars file:
 
-# Azure Service Principal Configuration
+//Azure Service Principal Configuration
 subscription_id = "<your-subscription-id>"
 client_secret   = "<your-client-secret>"
 client_id       = "<your-client-id>"
 tenant_id       = "<your-tenant-id>"
 
-# Backend Configuration
+//Backend Configuration
 backend_resource_group_name = "terraform-backend-state"
 backend_storage_account_name = "tfstateaccount03"
 backend_storage_container_name = "tfstate"
 
-# Core Configuration
+//Core Configuration
 resource_group_name = "application-zone"
 location            = "Southeast Asia"
 location_ai         = "East US"
 name_prefix         = "stel"
 
-# Virtual Network Configuration
+//Virtual Network Configuration
 vnet_name           = "application-ai-zone"
 vnet_address_space  = ["10.0.0.0/16"]
 
-# Subnets Configuration
+//Subnets Configuration
 subnets = [
   { name = "jump_box", address_prefix = "10.0.1.0/24" },
   { name = "github_runner", address_prefix = "10.0.5.0/24" },
@@ -65,18 +65,18 @@ subnets = [
   { name = "application_gateway", address_prefix = "10.0.2.0/26" }
 ]
 
-# VM to Subnet Mapping
+//VM to Subnet Mapping
 vm_subnet_mapping = {
   "jump-box-vm"      = "jump_box"
   "github-runner-vm" = "github_runner"
 }
 
-# VM Configuration
+//VM Configuration
 vm_size        = "Standard_D2ds_v5"
 admin_username = "azureadmin"
 admin_password = "<your-admin-password>"
 
-# AKS Configuration
+//AKS Configuration
 aks_name = "aks-cluster"
 system_node_pool_vm_size = "Standard_D2ds_v5"
 system_node_auto_scaling = true
@@ -89,7 +89,7 @@ user_node_max_count = 2
 kubernetes_version = "1.29.8"
 private_cluster_enabled = true
 
-# OpenAI Configuration
+//OpenAI Configuration
 openai_name = "openai"
 models = [
     { name = "gpt4o-deployment", model = "gpt-4o", format = "OpenAI" },
