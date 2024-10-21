@@ -263,21 +263,6 @@ This will output values for appId, password, and tenant, which are required for 
     "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
 
-**Authentication for Terraform**
-
-Configuring Azure Service Principal Authentication
-
-In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:
-
->Alternatively, you can add these details directly to a Terraform provider file (not recommended for production):
-
-    backend "azurerm" {
-        resource_group_name   = "xxxxx"
-        storage_account_name  = "xxxxx"
-        container_name        = "xxxxx"
-        key                   = "xxxxx.tfstate" 
-    }
-
 **Variables**
 
 >You can define your variables in terraform.tfvars or pass them directly at runtime. Here is an example of a terraform.tfvars file:
@@ -292,6 +277,20 @@ If not already done, you can assign the Owner role to the Service Principal with
 
     az role assignment create --assignee <appId> --role "Owner" --scope /subscriptions/<your-subscription-id>
 
+**Authentication for Terraform**
+
+Configuring Azure Service Principal Authentication
+
+In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:
+
+    backend "azurerm" {
+        resource_group_name   = "xxxxx"
+        storage_account_name  = "xxxxx"
+        container_name        = "xxxxx"
+        key                   = "xxxxx.tfstate" 
+    }
+
+>Alternatively, you can add these details directly to a Terraform provider file (not recommended for production):
     
 ### 4. Setting Up Backend State in Azure Storage
 Terraform uses a backend to store state files. In this project, we configure an Azure Storage Account as the backend for state management.
