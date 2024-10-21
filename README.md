@@ -305,7 +305,7 @@ Terraform uses a backend to store state files. In this project, we configure an 
 
 >This ensures that the Terraform state is securely stored and can be shared across team members.
         
-**5.1Running Project to Create Backend State**
+**5.1 Running Project to Create Backend State**
 
 First, you need to create an Azure Storage Account to store the state file. Run the following Terraform code without backend configuration to create the necessary resources:
 
@@ -319,7 +319,7 @@ First, you need to create an Azure Storage Account to store the state file. Run 
 
 > This configuration tells Terraform to use the Azure Storage Account for state management. The key parameter ("terraform.tfstate") specifies the name of the state file to store.
 
-**5.2Reconfigure Terraform to Use the Backend**
+**5.2 Reconfigure Terraform to Use the Backend**
             
 >Now that the backend is defined, run the following command to reconfigure Terraform to store state remotely:
 
