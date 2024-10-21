@@ -133,10 +133,8 @@ This Terraform project provisions Azure resources using Service Principal authen
 **4. Destroy Resources:**
 **- To destroy all resources created by this configuration:**
 
-        ```
         terraform destroy
-        ```
-
+     
 
 **Checking Service Principal Permissions**
 **Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:**
