@@ -321,7 +321,7 @@ First, you need to create an Azure Storage Account to store the state file. Run 
 
 **5.2 Reconfigure Terraform to Use the Backend**
             
->Now that the backend is defined, run the following command to reconfigure Terraform to store state remotely:
+Now that the backend is defined, run the following command to reconfigure Terraform to store state remotely:
 
 
     terraform init -reconfigure
