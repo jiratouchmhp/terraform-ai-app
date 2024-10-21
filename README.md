@@ -12,6 +12,32 @@ This Terraform project provisions Azure resources using Service Principal authen
 
 4. Service Principal: A Service Principal with the Owner role assigned to the subscription (see below for instructions on creating a Service Principal).
 
+**Example Commands**
+**Initialize Terraform:**
+
+1. Run this command to initialize the Terraform project and download the necessary provider plugins.
+>Review the init Terraform will make without applying them:
+
+        terraform init
+
+2. Plan Terraform Execution:
+
+>Review the changes Terraform will make without applying them:
+
+        terraform plan
+
+3. Apply the Terraform Configuration:**
+
+>Apply the changes to create the resources:
+
+        terraform apply
+
+4. Destroy Resources:**
+
+>To destroy all resources created by this configuration:
+
+        terraform destroy
+
 ## Project Configuration
 
 This project provisions the following Azure resources:
@@ -237,6 +263,30 @@ This will output values for appId, password, and tenant, which are required for 
     "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
 
+**Authentication for Terraform**
+
+Configuring Azure Service Principal Authentication
+
+In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:
+
+>Alternatively, you can add these details directly to a Terraform provider file (not recommended for production):
+
+    backend "azurerm" {
+        resource_group_name   = "xxxxx"
+        storage_account_name  = "xxxxx"
+        container_name        = "xxxxx"
+        key                   = "xxxxx.tfstate" 
+    }
+
+**Variables**
+
+>You can define your variables in terraform.tfvars or pass them directly at runtime. Here is an example of a terraform.tfvars file:
+
+    client_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    client_secret   = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    tenant_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
  ### 3. Assigning the Owner Role
 If not already done, you can assign the Owner role to the Service Principal with this command:
 
@@ -271,57 +321,6 @@ Step 3: Reconfigure Terraform to Use the Backend
           
 
 >This command will migrate the local state file to the configured backend in Azure Storage. Terraform will now keep the state in the Azure Storage Account instead of locally.
-
-### Authentication for Terraform
-
-Configuring Azure Service Principal Authentication
-
-In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:
-
->Alternatively, you can add these details directly to a Terraform provider file (not recommended for production):
-
-    backend "azurerm" {
-        resource_group_name   = "xxxxx"
-        storage_account_name  = "xxxxx"
-        container_name        = "xxxxx"
-        key                   = "xxxxx.tfstate" 
-    }
-
-**Variables**
-
->You can define your variables in terraform.tfvars or pass them directly at runtime. Here is an example of a terraform.tfvars file:
-
-    client_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    client_secret   = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    tenant_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-
-
-**Example Commands**
-**Initialize Terraform:**
-
-1. Run this command to initialize the Terraform project and download the necessary provider plugins.
->Review the init Terraform will make without applying them:
-
-        terraform init
-
-2. Plan Terraform Execution:
-
->Review the changes Terraform will make without applying them:
-
-        terraform plan
-
-3. Apply the Terraform Configuration:**
-
->Apply the changes to create the resources:
-
-        terraform apply
-
-4. Destroy Resources:**
-
->To destroy all resources created by this configuration:
-
-        terraform destroy
      
 
 **Checking Service Principal Permissions**
