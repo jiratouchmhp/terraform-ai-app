@@ -57,11 +57,11 @@ Terraform uses a backend to store state files. In this project, we configure an 
         
 **- Step 1: Running Project to Create Backend State**
 
-        terraform init
+    terraform init
 
-        terraform plan
+    terraform plan
 
-        terraform apply
+    terraform apply
 
 > First, you need to create an Azure Storage Account to store the state file. Run the following Terraform code without backend configuration to create the necessary resources:
 
