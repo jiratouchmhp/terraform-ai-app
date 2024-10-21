@@ -4,12 +4,13 @@ This Terraform project provisions Azure resources using Service Principal authen
 ## Prerequisites
 ### Before using this project, ensure the following:
 
-**1. Azure Account: You must have access to an Azure subscription.**
+1. Azure Account: You must have access to an Azure subscription.
 
-**2. Azure CLI: Ensure you have the Azure CLI installed ([Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)).**
+2. Azure CLI: Ensure you have the Azure CLI installed ([Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)).
 
-**3. Terraform: Install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (version >= 1.0).**
-**4. Service Principal: A Service Principal with the Owner role assigned to the subscription (see below for instructions on creating a Service Principal).**
+3. Terraform: Install [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (version >= 1.0).
+
+4. Service Principal: A Service Principal with the Owner role assigned to the subscription (see below for instructions on creating a Service Principal).
 
 ### 1. Authenticate with Azure CLI
     - Before creating the Service Principal, authenticate using Azure CLI by running the following command:
