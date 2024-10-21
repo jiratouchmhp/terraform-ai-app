@@ -74,9 +74,9 @@ This Terraform project provisions Azure resources using Service Principal authen
 
 **Run terraform init and terraform apply to create the storage account and container.**
 
-**- This configuration tells Terraform to use the Azure Storage Account for state management. The key parameter ("terraform.tfstate") specifies the name of the state file to store.**
+- This configuration tells Terraform to use the Azure Storage Account for state management. The key parameter ("terraform.tfstate") specifies the name of the state file to store.
 
->Step 3: Reconfigure Terraform to Use the Backend
+Step 3: Reconfigure Terraform to Use the Backend
             
 >Now that the backend is defined, run the following command to reconfigure Terraform to store state remotely:
 
