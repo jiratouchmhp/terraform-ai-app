@@ -86,7 +86,7 @@ Step 3: Reconfigure Terraform to Use the Backend
 
 Configuring Azure Service Principal Authentication
 
->In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:
+In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:
 
 >Alternatively, you can add these details directly to a Terraform provider file (not recommended for production):
 
@@ -94,7 +94,7 @@ Configuring Azure Service Principal Authentication
         resource_group_name   = "xxxxx"
         storage_account_name  = "xxxxx"
         container_name        = "xxxxx"
-        key                   = "xxxxx.tfstate"  // State file for application ai zone
+        key                   = "xxxxx.tfstate" 
     }
 
 **Variables**
