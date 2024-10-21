@@ -277,6 +277,14 @@ If not already done, you can assign the Owner role to the Service Principal with
 
     az role assignment create --assignee <appId> --role "Owner" --scope /subscriptions/<your-subscription-id>
 
+**Checking Service Principal Permissions**
+
+>Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:
+
+```
+az role assignment list --assignee <appId>
+```
+
 ### 4.Authentication for Terraform
 
 Configuring Azure Service Principal Authentication
@@ -321,15 +329,6 @@ First, you need to create an Azure Storage Account to store the state file. Run 
 
 >This command will migrate the local state file to the configured backend in Azure Storage. Terraform will now keep the state in the Azure Storage Account instead of locally.
      
-
-**Checking Service Principal Permissions**
-
->Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:
-
-```
-az role assignment list --assignee <appId>
-```
-
 >For more information about Service Principal authentication in Azure, refer to the [Terraform documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) and [Azure CLI documentation](https://learn.microsoft.com/en-us/cli/azure/azure-cli-sp-tutorial-1?tabs=bash).
 
 
