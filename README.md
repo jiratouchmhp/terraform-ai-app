@@ -13,19 +13,20 @@ This Terraform project provisions Azure resources using Service Principal authen
 4. Service Principal: A Service Principal with the Owner role assigned to the subscription (see below for instructions on creating a Service Principal).
 
 ### 1. Authenticate with Azure CLI
-    - Before creating the Service Principal, authenticate using Azure CLI by running the following command:
 
-    ```
+    Before creating the Service Principal, authenticate using Azure CLI by running the following command:
+
+
     az login
-    ```
+
 
     This will open a browser window for you to sign in with your Azure account credentials. Once signed in, Azure CLI will authenticate you for any subsequent commands.
 
-    - If you have access to multiple Azure subscriptions, you can set the active subscription with:
+    >If you have access to multiple Azure subscriptions, you can set the active subscription with:
 
-    ```
+    
     az account set --subscription "<subscription-id>"
-    ```
+    
 
 ### 2. Creating a Service Principal
     - You can create an Azure Service Principal and assign it the Owner role using the Azure CLI:
