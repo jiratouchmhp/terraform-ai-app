@@ -34,6 +34,7 @@ This project provisions the following Azure resources:
 
 Define your project variables in a terraform.tfvars file:
 
+```
 //Azure Service Principal Configuration
 
 subscription_id = "<your-subscription-id>"
@@ -126,7 +127,7 @@ models = [
     { name = "gpt4o-deployment", model = "gpt-4o", format = "OpenAI" },
     { name = "embedding-deployment", model = "text-embedding-ada-002", format = "OpenAI" }
 ]
-
+```
 
 ### 1. Authenticate with Azure CLI
 
