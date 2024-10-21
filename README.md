@@ -52,59 +52,59 @@ This Terraform project provisions Azure resources using Service Principal authen
 
     
 ### 4. Setting Up Backend State in Azure Storage
-        Terraform uses a backend to store state files. In this project, we configure an Azure Storage Account as the backend for state management. This ensures that the Terraform state is securely stored and can be shared across team members.
-        - Step 1: Running Project to Create Backend State
-            - First, you need to create an Azure Storage Account to store the state file. Run the following Terraform code without backend configuration to create the necessary resources:
+**Terraform uses a backend to store state files. In this project, we configure an Azure Storage Account as the backend for state management.** 
 
-            Run terraform init and terraform apply to create the storage account and container.
+**This ensures that the Terraform state is securely stored and can be shared across team members.**
+        
+**- Step 1: Running Project to Create Backend State**
 
-        - Step 2: Configure Backend in Terraform
-            - Once the storage resources are created, configure the backend in your Terraform project:
+        terraform init
 
-            ```
-            backend "azurerm" {
-                resource_group_name   = "rg-terraform-backend"
-                storage_account_name  = "tfbackendstorageacc"
-                container_name        = "tfstate"
-                key                   = "terraform.tfstate"
-            }
-            ```
+        terraform plan
 
-            - This configuration tells Terraform to use the Azure Storage Account for state management. The key parameter ("terraform.tfstate") specifies the name of the state file to store.
+        terraform apply
 
-        - Step 3: Reconfigure Terraform to Use the Backend
-            - Now that the backend is defined, run the following command to reconfigure Terraform to store state remotely:
+**- First, you need to create an Azure Storage Account to store the state file. Run the following Terraform code without backend configuration to create the necessary resources:**
 
-            ```
+
+
+**Run terraform init and terraform apply to create the storage account and container.**
+
+**- This configuration tells Terraform to use the Azure Storage Account for state management. The key parameter ("terraform.tfstate") specifies the name of the state file to store.**
+
+**- Step 3: Reconfigure Terraform to Use the Backend**
+            
+**- Now that the backend is defined, run the following command to reconfigure Terraform to store state remotely:**
+
+
             terraform init -reconfigure
-            ```
-            - This command will migrate the local state file to the configured backend in Azure Storage. Terraform will now keep the state in the Azure Storage Account instead of locally.
+          
+
+**- This command will migrate the local state file to the configured backend in Azure Storage. Terraform will now keep the state in the Azure Storage Account instead of locally.**
 
 ### Authentication for Terraform
 
 **Configuring Azure Service Principal Authentication**
+
 **In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:**
+
 **Alternatively, you can add these details directly to a Terraform provider file (not recommended for production):**
 
-    ```
-    provider "azurerm" {
-    client_id       = var.client_id
-    client_secret   = var.client_secret
-    subscription_id = var.subscription_id
-    tenant_id       = var.tenant_id
-    features        = {}
+    backend "azurerm" {
+        resource_group_name   = "xxxxx"
+        storage_account_name  = "xxxxx"
+        container_name        = "xxxxx"
+        key                   = "xxxxx.tfstate"  // State file for application ai zone
     }
-    ```
 
 **Variables**
 **You can define your variables in terraform.tfvars or pass them directly at runtime. Here is an example of a terraform.tfvars file:**
 
-    ```
     client_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     tenant_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    ```
+
 
 **Example Commands**
 **Initialize Terraform:**
@@ -114,6 +114,7 @@ This Terraform project provisions Azure resources using Service Principal authen
         terraform init
 
 **2. Plan Terraform Execution:**
+
 **- Review the changes Terraform will make without applying them:**
 
         terraform plan
@@ -125,12 +126,14 @@ This Terraform project provisions Azure resources using Service Principal authen
         terraform apply
 
 **4. Destroy Resources:**
+
 **- To destroy all resources created by this configuration:**
 
         terraform destroy
      
 
 **Checking Service Principal Permissions**
+
 **Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:**
 
 ```
