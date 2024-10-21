@@ -277,13 +277,13 @@ If not already done, you can assign the Owner role to the Service Principal with
 
     az role assignment create --assignee <appId> --role "Owner" --scope /subscriptions/<your-subscription-id>
 
-**Checking Service Principal Permissions**
-
->Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:
+Checking Service Principal Permissions
 
 ```
 az role assignment list --assignee <appId>
 ```
+
+>Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:
 
 ### 4.Authentication for Terraform
 
