@@ -57,12 +57,23 @@ This Terraform project provisions Azure resources using Service Principal authen
 **This ensures that the Terraform state is securely stored and can be shared across team members.**
         
 **- Step 1: Running Project to Create Backend State**
+        ```
 
         terraform init
 
+        ```
+
+        ```
+
         terraform plan
 
+        ```
+        
+        ```
+
         terraform apply
+
+        ```
 
 **- First, you need to create an Azure Storage Account to store the state file. Run the following Terraform code without backend configuration to create the necessary resources:**
 
