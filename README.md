@@ -61,7 +61,7 @@ location            = "Southeast Asia"
 
 location_ai         = "East US"
 
-name_prefix         = "stel"
+name_prefix         = "jm"
 
 //Virtual Network Configuration
 
