@@ -103,7 +103,7 @@ Configuring Azure Service Principal Authentication
 
 **Variables**
 
-You can define your variables in terraform.tfvars or pass them directly at runtime. Here is an example of a terraform.tfvars file:
+>You can define your variables in terraform.tfvars or pass them directly at runtime. Here is an example of a terraform.tfvars file:
 
     client_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -115,6 +115,7 @@ You can define your variables in terraform.tfvars or pass them directly at runti
 **Initialize Terraform:**
 
 1. Run this command to initialize the Terraform project and download the necessary provider plugins.
+>Review the init Terraform will make without applying them:
 
         terraform init
 
