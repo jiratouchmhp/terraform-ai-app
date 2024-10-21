@@ -313,8 +313,6 @@ Run terraform init and terraform apply to create the storage account and contain
 
     terraform init
 
-    terraform plan
-
     terraform apply
 
 > This configuration tells Terraform to use the Azure Storage Account for state management. The key parameter ("terraform.tfstate") specifies the name of the state file to store.
