@@ -29,13 +29,13 @@ If you have access to multiple Azure subscriptions, you can set the active subsc
     
 
 ### 2. Creating a Service Principal
-    - You can create an Azure Service Principal and assign it the Owner role using the Azure CLI:
+
+You can create an Azure Service Principal and assign it the Owner role using the Azure CLI:
 
     az ad sp create-for-rbac --name "<service-principal-name>" --role="Owner" --scopes="/subscriptions/<your-subscription-id>"
 
-    This will output values for appId, password, and tenant, which are required for authentication.
+This will output values for appId, password, and tenant, which are required for authentication.
 
-    ```
     Example output:
     {
     "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -43,14 +43,11 @@ If you have access to multiple Azure subscriptions, you can set the active subsc
     "password": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
-    ```
 
  ### 3. Assigning the Owner Role
-    If not already done, you can assign the Owner role to the Service Principal with this command:
+If not already done, you can assign the Owner role to the Service Principal with this command:
 
-    ```
     az role assignment create --assignee <appId> --role "Owner" --scope /subscriptions/<your-subscription-id>
-    ```
 
     
 ### 4. Setting Up Backend State in Azure Storage
