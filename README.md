@@ -329,7 +329,7 @@ First, you need to create an Azure Storage Account to store the state file. Run 
 
 >This command will migrate the local state file to the configured backend in Azure Storage. Terraform will now keep the state in the Azure Storage Account instead of locally.
      
->For more information about Service Principal authentication in Azure, refer to the [Terraform documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) and [Azure CLI documentation](https://learn.microsoft.com/en-us/cli/azure/azure-cli-sp-tutorial-1?tabs=bash).
+**For more information about Service Principal authentication in Azure, refer to the [Terraform documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) and [Azure CLI documentation](https://learn.microsoft.com/en-us/cli/azure/azure-cli-sp-tutorial-1?tabs=bash).**
 
 
 
