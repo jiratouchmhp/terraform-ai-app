@@ -82,9 +82,9 @@ This Terraform project provisions Azure resources using Service Principal authen
 
 ### Authentication for Terraform
 
-    Configuring Azure Service Principal Authentication
-    In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:
-    Alternatively, you can add these details directly to a Terraform provider file (not recommended for production):
+**Configuring Azure Service Principal Authentication**
+**In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:**
+**Alternatively, you can add these details directly to a Terraform provider file (not recommended for production):**
 
     ```
     provider "azurerm" {
@@ -96,8 +96,8 @@ This Terraform project provisions Azure resources using Service Principal authen
     }
     ```
 
-    Variables
-    You can define your variables in terraform.tfvars or pass them directly at runtime. Here is an example of a terraform.tfvars file:
+**Variables**
+**You can define your variables in terraform.tfvars or pass them directly at runtime. Here is an example of a terraform.tfvars file:**
 
     ```
     client_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -106,30 +106,32 @@ This Terraform project provisions Azure resources using Service Principal authen
     tenant_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
 
-    Example Commands
-    Initialize Terraform:
+**Example Commands**
+**Initialize Terraform:**
 
-    1. Run this command to initialize the Terraform project and download the necessary provider plugins.
+**1. Run this command to initialize the Terraform project and download the necessary provider plugins.**
 
+        ```
         terraform init
+        ```
 
-    2. Plan Terraform Execution:
-        - Review the changes Terraform will make without applying them:
+**2. Plan Terraform Execution:**
+**- Review the changes Terraform will make without applying them:**
 
         ```
         terraform plan
         ```
 
-    3. Apply the Terraform Configuration:
+**3. Apply the Terraform Configuration:**
 
-        - Apply the changes to create the resources:
+**- Apply the changes to create the resources:**
 
         ```
         terraform apply
         ```
 
-    4. Destroy Resources:
-        - To destroy all resources created by this configuration:
+**4. Destroy Resources:**
+**- To destroy all resources created by this configuration:**
 
         ```
         terraform destroy
@@ -137,7 +139,7 @@ This Terraform project provisions Azure resources using Service Principal authen
 
 
 **Checking Service Principal Permissions**
-Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:
+**Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:**
 
 ```
 az role assignment list --assignee <appId>
