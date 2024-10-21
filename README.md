@@ -111,24 +111,18 @@ This Terraform project provisions Azure resources using Service Principal authen
 
 **1. Run this command to initialize the Terraform project and download the necessary provider plugins.**
 
-        ```
         terraform init
-        ```
 
 **2. Plan Terraform Execution:**
 **- Review the changes Terraform will make without applying them:**
 
-        ```
         terraform plan
-        ```
 
 **3. Apply the Terraform Configuration:**
 
 **- Apply the changes to create the resources:**
 
-        ```
         terraform apply
-        ```
 
 **4. Destroy Resources:**
 **- To destroy all resources created by this configuration:**
