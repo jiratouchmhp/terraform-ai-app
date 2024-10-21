@@ -12,6 +12,91 @@ This Terraform project provisions Azure resources using Service Principal authen
 
 4. Service Principal: A Service Principal with the Owner role assigned to the subscription (see below for instructions on creating a Service Principal).
 
+## Project Configuration
+
+This project provisions the following Azure resources:
+
+1. Virtual Network with defined subnets.
+
+2. Virtual Machines mapped to specific subnets.
+
+3. Azure Kubernetes Service (AKS) with node pools and private cluster enabled.
+
+4. Azure PostgreSQL Flexible Server with defined configuration.
+
+5. Azure Key Vault with optional private endpoint integration.
+
+6. Azure Application Gateway for AKS ingress.
+
+7. Azure OpenAI for machine learning deployments.
+
+## Core Project Variables
+
+Define your project variables in a terraform.tfvars file:
+
+# Azure Service Principal Configuration
+subscription_id = "<your-subscription-id>"
+client_secret   = "<your-client-secret>"
+client_id       = "<your-client-id>"
+tenant_id       = "<your-tenant-id>"
+
+# Backend Configuration
+backend_resource_group_name = "terraform-backend-state"
+backend_storage_account_name = "tfstateaccount03"
+backend_storage_container_name = "tfstate"
+
+# Core Configuration
+resource_group_name = "application-zone"
+location            = "Southeast Asia"
+location_ai         = "East US"
+name_prefix         = "stel"
+
+# Virtual Network Configuration
+vnet_name           = "application-ai-zone"
+vnet_address_space  = ["10.0.0.0/16"]
+
+# Subnets Configuration
+subnets = [
+  { name = "jump_box", address_prefix = "10.0.1.0/24" },
+  { name = "github_runner", address_prefix = "10.0.5.0/24" },
+  { name = "private-endpoints", address_prefix = "10.0.0.32/27" },
+  { name = "postgresql", address_prefix = "10.0.0.64/28" },
+  { name = "aks", address_prefix = "10.0.3.0/24" },
+  { name = "application_gateway", address_prefix = "10.0.2.0/26" }
+]
+
+# VM to Subnet Mapping
+vm_subnet_mapping = {
+  "jump-box-vm"      = "jump_box"
+  "github-runner-vm" = "github_runner"
+}
+
+# VM Configuration
+vm_size        = "Standard_D2ds_v5"
+admin_username = "azureadmin"
+admin_password = "<your-admin-password>"
+
+# AKS Configuration
+aks_name = "aks-cluster"
+system_node_pool_vm_size = "Standard_D2ds_v5"
+system_node_auto_scaling = true
+system_node_min_count = 1
+system_node_max_count = 2
+user_node_pool_vm_size = "Standard_D2ds_v5"
+user_node_auto_scaling = true
+user_node_min_count = 1
+user_node_max_count = 2
+kubernetes_version = "1.29.8"
+private_cluster_enabled = true
+
+# OpenAI Configuration
+openai_name = "openai"
+models = [
+    { name = "gpt4o-deployment", model = "gpt-4o", format = "OpenAI" },
+    { name = "embedding-deployment", model = "text-embedding-ada-002", format = "OpenAI" }
+]
+
+
 ### 1. Authenticate with Azure CLI
 
 Before creating the Service Principal, authenticate using Azure CLI by running the following command:
