@@ -32,7 +32,7 @@ This project provisions the following Azure resources:
 
 ## Core Project Variables
 
-Define your project variables in a terraform.tfvars file:
+>Define your project variables in a terraform.tfvars file:
 
 ```
 //Azure Service Principal Configuration
