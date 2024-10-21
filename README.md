@@ -98,7 +98,8 @@ Alternatively, you can add these details directly to a Terraform provider file (
     }
 
 **Variables**
-**You can define your variables in terraform.tfvars or pass them directly at runtime. Here is an example of a terraform.tfvars file:**
+
+You can define your variables in terraform.tfvars or pass them directly at runtime. Here is an example of a terraform.tfvars file:
 
     client_id       = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -109,32 +110,32 @@ Alternatively, you can add these details directly to a Terraform provider file (
 **Example Commands**
 **Initialize Terraform:**
 
-**1. Run this command to initialize the Terraform project and download the necessary provider plugins.**
+1. Run this command to initialize the Terraform project and download the necessary provider plugins.
 
         terraform init
 
-**2. Plan Terraform Execution:**
+2. Plan Terraform Execution:**
 
-**- Review the changes Terraform will make without applying them:**
+- Review the changes Terraform will make without applying them:
 
         terraform plan
 
-**3. Apply the Terraform Configuration:**
+3. Apply the Terraform Configuration:**
 
-**- Apply the changes to create the resources:**
+- Apply the changes to create the resources:**
 
         terraform apply
 
-**4. Destroy Resources:**
+4. Destroy Resources:**
 
-**- To destroy all resources created by this configuration:**
+- To destroy all resources created by this configuration:**
 
         terraform destroy
      
 
 **Checking Service Principal Permissions**
 
-**Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:**
+Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:
 
 ```
 az role assignment list --assignee <appId>
