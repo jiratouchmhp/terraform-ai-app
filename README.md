@@ -22,7 +22,7 @@ Before creating the Service Principal, authenticate using Azure CLI by running t
 
 >This will open a browser window for you to sign in with your Azure account credentials. Once signed in, Azure CLI will authenticate you for any subsequent commands.
 
->If you have access to multiple Azure subscriptions, you can set the active subscription with:
+If you have access to multiple Azure subscriptions, you can set the active subscription with:
 
     
     az account set --subscription "<subscription-id>"
