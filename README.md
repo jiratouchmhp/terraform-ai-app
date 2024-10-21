@@ -87,6 +87,15 @@ vm_subnet_mapping = {
   "github-runner-vm" = "github_runner"
 }
 
+//Subnet Mapping Configuration
+
+subnet_mapping = {
+  "aks-stel-cluster" = "aks"
+  "app-gateway-stel" = "application_gateway"
+  "postgresql-stel-flexible" = "postgresql"
+  "private-endpoints-stel" = "private-endpoints"
+}
+
 //VM Configuration
 
 vm_size        = "Standard_D2ds_v5"
@@ -127,6 +136,73 @@ models = [
     { name = "gpt4o-deployment", model = "gpt-4o", format = "OpenAI" },
     { name = "embedding-deployment", model = "text-embedding-ada-002", format = "OpenAI" }
 ]
+
+//Define Postgres Configuration
+
+postgres_server_name = "flexible-server"
+
+postgres_admin_username = "postgresadmin"
+
+postgres_admin_password = "Password1234!"
+
+postgres_version = "13"
+
+postgres_sku_name = "GP_Standard_D4s_v3"
+
+postgres_storage_mb = 32768
+
+backup_retention_days = 7
+
+geo_redundant_backup = false
+
+high_availability_mode = "Disabled"
+
+//Define Key Vault Configuration
+
+key_vault_name = "key-vault"
+
+sku_name_key_vault = "standard"
+
+enable_private_endpoint = true
+
+//Define Application Gateway Configuration
+
+app_gateway_name = "app-gateway"
+
+//Custom host header for AKS
+
+aks_host_header = "api.mydomain.com"  # Replace with your custom domain if needed for AKS routing
+
+//SKU and Capacity for Application Gateway
+
+sku_name  = "WAF_v2"
+
+sku_tier  = "WAF_v2"
+
+capacity  = 2  # Adjust capacity based on your needs
+
+//WAF Mode (Detection or Prevention)
+
+waf_mode = "Detection"
+
+admin_group_object_ids = []
+
+//Define Log Analytics Configuration
+
+workspace_name = "shared-log-analytics"
+
+sku_log_analytics = "PerGB2018"
+
+retention_in_days = 30
+
+//Define Other Configuration
+
+# Tags
+tags = {
+  environment = "dev"
+  project     = "application-ai_zone_setup"
+}
+
 ```
 
 ### 1. Authenticate with Azure CLI
