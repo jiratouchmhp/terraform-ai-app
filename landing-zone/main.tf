@@ -57,7 +57,7 @@ locals {
 locals {
   app_gateway_subnet_id = lookup(
     module.network.subnet_ids, 
-    var.subnet_mapping["app-gateway-stel"], 
+    var.subnet_mapping["app-gateway"], 
     ""  # Default value if no match is found
   )
 }
@@ -66,7 +66,7 @@ locals {
 locals {
   private-endpoints_subnet_id = lookup(
     module.network.subnet_ids, 
-    var.subnet_mapping["private-endpoints-stel"], 
+    var.subnet_mapping["private-endpoints"], 
     ""  # Default value if no match is found
   )
 }
@@ -75,7 +75,7 @@ locals {
 locals {
   aks_subnet_id = lookup(
     module.network.subnet_ids, 
-    var.subnet_mapping["aks-stel-cluster"], 
+    var.subnet_mapping["aks-cluster"], 
     ""  # Default value if no match is found
   )
 }
@@ -84,7 +84,7 @@ locals {
 locals {
   postgres_subnet_id = lookup(
     module.network.subnet_ids, 
-    var.subnet_mapping["postgresql-stel-flexible"], 
+    var.subnet_mapping["postgresql-flexible"], 
     ""  # Default value if no match is found
   )
 }
