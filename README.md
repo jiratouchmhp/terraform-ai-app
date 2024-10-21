@@ -64,7 +64,7 @@ This Terraform project provisions Azure resources using Service Principal authen
         ```
         terraform plan
         ```
-        
+
         ```
         terraform apply
         ```
@@ -76,9 +76,9 @@ This Terraform project provisions Azure resources using Service Principal authen
 
 **- This configuration tells Terraform to use the Azure Storage Account for state management. The key parameter ("terraform.tfstate") specifies the name of the state file to store.**
 
-**- Step 3: Reconfigure Terraform to Use the Backend**
+>Step 3: Reconfigure Terraform to Use the Backend
             
-**- Now that the backend is defined, run the following command to reconfigure Terraform to store state remotely:**
+>Now that the backend is defined, run the following command to reconfigure Terraform to store state remotely:
 
 
             terraform init -reconfigure
@@ -88,11 +88,11 @@ This Terraform project provisions Azure resources using Service Principal authen
 
 ### Authentication for Terraform
 
-**Configuring Azure Service Principal Authentication**
+Configuring Azure Service Principal Authentication
 
-In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:
+>In order to authenticate with Azure, you need to set the following environment variables with the Service Principal credentials:
 
-Alternatively, you can add these details directly to a Terraform provider file (not recommended for production):
+>Alternatively, you can add these details directly to a Terraform provider file (not recommended for production):
 
     backend "azurerm" {
         resource_group_name   = "xxxxx"
@@ -118,7 +118,7 @@ You can define your variables in terraform.tfvars or pass them directly at runti
 
         terraform init
 
-2. Plan Terraform Execution:**
+2. Plan Terraform Execution:
 
 >Review the changes Terraform will make without applying them:
 
@@ -139,7 +139,7 @@ You can define your variables in terraform.tfvars or pass them directly at runti
 
 **Checking Service Principal Permissions**
 
-Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:
+>Ensure that the Service Principal has Owner permissions in the subscription. You can verify its role with:
 
 ```
 az role assignment list --assignee <appId>
