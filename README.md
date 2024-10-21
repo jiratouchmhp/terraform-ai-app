@@ -52,27 +52,21 @@ This Terraform project provisions Azure resources using Service Principal authen
 
     
 ### 4. Setting Up Backend State in Azure Storage
-**Terraform uses a backend to store state files. In this project, we configure an Azure Storage Account as the backend for state management.** 
+Terraform uses a backend to store state files. In this project, we configure an Azure Storage Account as the backend for state management.
 
-**This ensures that the Terraform state is securely stored and can be shared across team members.
+This ensures that the Terraform state is securely stored and can be shared across team members.
         
 **- Step 1: Running Project to Create Backend State**
-        ```
+
         terraform init
-        ```
 
-        ```
         terraform plan
-        ```
 
-        ```
         terraform apply
-        ```
-**- First, you need to create an Azure Storage Account to store the state file. Run the following Terraform code without backend configuration to create the necessary resources:**
 
+- First, you need to create an Azure Storage Account to store the state file. Run the following Terraform code without backend configuration to create the necessary resources:
 
-
-**Run terraform init and terraform apply to create the storage account and container.**
+Run terraform init and terraform apply to create the storage account and container.
 
 - This configuration tells Terraform to use the Azure Storage Account for state management. The key parameter ("terraform.tfstate") specifies the name of the state file to store.
 
