@@ -81,7 +81,7 @@ Step 3: Reconfigure Terraform to Use the Backend
 >Now that the backend is defined, run the following command to reconfigure Terraform to store state remotely:
 
 
-            terraform init -reconfigure
+    terraform init -reconfigure
           
 
 **- This command will migrate the local state file to the configured backend in Azure Storage. Terraform will now keep the state in the Azure Storage Account instead of locally.**
