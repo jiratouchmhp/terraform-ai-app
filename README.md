@@ -116,10 +116,10 @@ vm_subnet_mapping = {
 //Subnet Mapping Configuration
 
 subnet_mapping = {
-  "aks-stel-cluster" = "aks"
-  "app-gateway-stel" = "application_gateway"
-  "postgresql-stel-flexible" = "postgresql"
-  "private-endpoints-stel" = "private-endpoints"
+  "aks-cluster" = "aks"
+  "app-gateway" = "application_gateway"
+  "postgresql-flexible" = "postgresql"
+  "private-endpoints" = "private-endpoints"
 }
 
 //VM Configuration
