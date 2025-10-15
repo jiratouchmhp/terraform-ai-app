@@ -56,6 +56,8 @@ This project provisions the following Azure resources:
 
 7. Azure OpenAI for machine learning deployments.
 
+8. Azure Container Apps for serverless container deployments.
+
 ## Core Project Variables
 
 Define your project variables in a terraform.tfvars file:
@@ -326,6 +328,30 @@ Now that the backend is defined, run the following command to reconfigure Terraf
           
 
 >This command will migrate the local state file to the configured backend in Azure Storage. Terraform will now keep the state in the Azure Storage Account instead of locally.
+
+## Available Modules
+
+This project includes the following reusable Terraform modules:
+
+- **resource_group**: Creates Azure Resource Groups
+- **vnet**: Creates Virtual Networks with subnets
+- **compute**: Deploys Virtual Machines
+- **aks**: Deploys Azure Kubernetes Service clusters
+- **postgres_flexible**: Deploys Azure PostgreSQL Flexible Servers
+- **keyvault**: Creates Azure Key Vaults with optional private endpoints
+- **application_gateway**: Deploys Azure Application Gateways
+- **azure_openai**: Deploys Azure OpenAI resources
+- **log_analytics**: Creates Log Analytics Workspaces
+- **storage_account**: Manages Azure Storage Accounts
+- **container_app**: Deploys Azure Container Apps for serverless containers
+- **private_dns_zone**: Manages Private DNS Zones
+- **private_dns_record**: Manages Private DNS Records
+- **diagnostics**: Configures diagnostic settings
+- **vm_extension**: Manages VM extensions
+- **user_groups**: Manages Azure AD user groups
+- **backend**: Sets up Terraform backend storage
+
+Each module includes detailed documentation in its respective directory under `modules/`.
      
 **For more information about Service Principal authentication in Azure, refer to the [Terraform documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) and [Azure CLI documentation](https://learn.microsoft.com/en-us/cli/azure/azure-cli-sp-tutorial-1?tabs=bash).**
 
